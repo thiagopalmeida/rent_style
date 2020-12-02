@@ -1,2 +1,58 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+</div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <p>Consulte o produto desejado  (falta adicionar estilo)</p>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="ml-auto flex">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" name="query" type="search" placeholder="Produto" aria-label="Search" value="<%= params[:query] %>">
+          <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Buscar</button>
+          (adicionar link para a página de show)
+        </form>
+        
+        <form class="form-inline my-2 my-lg-06">
+          <button class="btn btn-outline-success my-6my-sm-0" type="submit">Botão para cadastrar produto (mudar estilo)</button>
+        (adicionar link para a página de cadastramento de produtos)
+        </form>
+      </div>
+    </div>
+  </nav>
+
+Listar produtos em forma aleatória ?????
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="product-card">
+        <% background_url = 'https://source.unsplash.com/500x400/?dress' %>
+          <div class="product-card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= background_url %>');"></div>
+          
+          <div class="product-card-content">
+            <div class="product-card-title">
+              <h2>Nome do produto</h2>
+              <p>Descrição do produto</p>
+            <div class="flex">
+              <div class="flex ml-3">
+                <i class="material-icons mr-2">R$</i> preço
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+  
+</div>
+  <div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <footer>
+    <%= link_to "como funciona", 'pages#about', class: 'btn btn-success' %>
+  </footer>
+</div>
