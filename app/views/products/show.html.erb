@@ -1,0 +1,11 @@
+<p>Produto:</p>
+<%= @product.description %>
+<%= @product.category %>
+<%= @product.subcategory %>
+<%= @product.brand %>
+<%= @product.size %>
+<%= @product.price %>
+
+<% @product.photos.each do |photo| %>
+ <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
