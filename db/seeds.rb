@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Criando novos usuários:"
+puts "Creating users..."
 
 10.times do
   u = User.create(
@@ -24,7 +24,7 @@ end
 # puts "Apagando produtos anteriores..."
 # Product.destroy_all
 # puts "Produtos apagados!"
-puts "Criando novos produtos de exemplo:"
+puts "Creating products..."
 
 50.times do
   p = Product.create(
@@ -44,7 +44,7 @@ end
 # puts "Apagando transações anteriores..."
 # Transaction.destroy_all
 # puts "Transações apagadas!"
-puts "Criando novas transações de exemplo:"
+puts "Creating transactions..."
 
 100.times do
   t = Transaction.create(
