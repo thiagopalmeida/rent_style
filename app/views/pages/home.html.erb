@@ -1,6 +1,31 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Voluptatem odio magnam eos, sequi ipsum maiores voluptas deserunt atque repellendus similique ducimus repudiandae rerum maxime, ea alias illum animi placeat nisi.</p>
-<hr>
-<p>Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Recusandae, laboriosam nesciunt laborum illo, fugiat qui eaque eligendi expedita nisi, natus dolorem ad dolore assumenda perferendis voluptatibus repellendus nemo temporibus, deserunt.</p>
+<%# <div class="container"style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://source.unsplash.com/500x400/?dress');">
+  <h1><strong>Rent Style</strong></h1>
+  <hr>
+  <p>Estilo não se compra, mas pode ser alugado</p>
+  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum sit velit rerum unde tenetur? Cum, temporibus. Maiores itaque, voluptas, voluptate in iste recusandae rerum ut corrupti amet laboriosam, magnam dolorem.</p>
+  <a href="..." class="btn btn-primary">Conheça nossos produtos</a>
+</div> %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1602791013646-80ce7a59b501?ixlib=rb-1.2.1&q=');">
+  <div class="container-fluid text-center">
+    <h1><strong>Rent Style</strong></h1>
+    <br>
+    <p>Estilo não se compra, mas pode ser alugado</p>
+    <br>
+    <br>
+    <div class="container w-25 p-3">
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control">
+        <input class="form-control" type="text" placeholder="Digite o produto desejado" name="search[query]" id="search_query" />
+            <button name="button" type="submit" class="btn btn-primary">
+          <i class="fas fa-search"></i> Buscar
+        </button>
+        <br>
+        <br>
+      </div>
+    </div>
+  <% end %>
+       <a class="btn btn-primary" href="#">Conheça nossos produtos</a>
+  </div>
+</div>
