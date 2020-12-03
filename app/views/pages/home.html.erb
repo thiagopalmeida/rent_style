@@ -1,6 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Voluptatem odio magnam eos, sequi ipsum maiores voluptas deserunt atque repellendus similique ducimus repudiandae rerum maxime, ea alias illum animi placeat nisi.</p>
-<hr>
-<p>Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Recusandae, laboriosam nesciunt laborum illo, fugiat qui eaque eligendi expedita nisi, natus dolorem ad dolore assumenda perferendis voluptatibus repellendus nemo temporibus, deserunt.</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://source.unsplash.com/500x400/?dress');">
+  <div class="banner-content">
+    <h1>Rent Style</h1>
+    <p>O seu melhor estilo =============================MELHORAR ESSE BANNER PQ TÁ FEIO</p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+     <div class="col-12 col-md-6 col-lg-3">
+        <div class="product-card">
+          <% background_url = 'https://source.unsplash.com/500x400/?dress' %>
+          <div class="product-card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= background_url %>');"></div>
+        </div>
+        <div class="product-card-content">
+          <div class="product-card-title">
+            <h2>Nome do produto</h2>
+            <p>Descrição do produto</p>
+          </div>
+        </div>
+        <div class="flex">
+          <div class="flex ml-3">
+            <i class="material-icons mr-2">R$</i> preço
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+  

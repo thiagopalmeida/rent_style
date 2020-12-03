@@ -7,16 +7,18 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
-  <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <div class="container mt-3">
-      <%= yield %>
-    </div>
-    <%= render 'shared/footer' %>
-  </body>
+   <body>
+     <%= render 'shared/navbar' %>
+     <%= render 'shared/flashes' %>
+     <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://source.unsplash.com/500x400/?dress');">
+       <div class="banner-content">
+         <h1>Rent Style</h1>
+         <p>O seu melhor estilo =============================MELHORAR ESSE BANNER PQ TÁ FEIO</p>
+       </div>
+     </div>
+     <%= yield %>
+     <%= render 'shared/footer' %>
+   </body>
 </html>
