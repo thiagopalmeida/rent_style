@@ -4,10 +4,22 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :name,
+                required: true,
+                input_html: { autocomplete: "name" } %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :address,
+                required: false,
+                input_html: { autocomplete: "address" } %>
+    <%= f.input :birth_date,
+                required: false,
+                input_html: { autocomplete: "birth_date" } %>
+    <%= f.input :telephone,
+                required: false,
+                input_html: { autocomplete: "telephone" } %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
