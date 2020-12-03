@@ -10,10 +10,19 @@ $body-bg:                 $light-gray;
 $font-size-base: 1rem;
 
 // Colors
+// $body-color: $gray;
+// $primary:    $blue;
+// $success:    $green;
+// $info:       $yellow;
+// $danger:     $red;
+// $warning:    $orange;
+
+// Team Lewabon Colors
+$body-bg:    rgb(255,202,175);
 $body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
+$primary:    #583d72;
+$success:    #9f5f80;
+$info:       #ff8e71;
 $danger:     $red;
 $warning:    $orange;
 
