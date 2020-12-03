@@ -1,28 +1,22 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://source.unsplash.com/500x400/?dress');">
-  <div class="banner-content">
-    <h1>Rent Style</h1>
-    <p>O seu melhor estilo =============================MELHORAR ESSE BANNER PQ TÁ FEIO</p>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-     <div class="col-12 col-md-6 col-lg-3">
-        <div class="product-card">
-          <% background_url = 'https://source.unsplash.com/500x400/?dress' %>
-          <div class="product-card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= background_url %>');"></div>
-        </div>
-        <div class="product-card-content">
-          <div class="product-card-title">
-            <h2>Nome do produto</h2>
-            <p>Descrição do produto</p>
-          </div>
-        </div>
-        <div class="flex">
-          <div class="flex ml-3">
-            <i class="material-icons mr-2">R$</i> preço
-          </div>
-        </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1602791013646-80ce7a59b501?ixlib=rb-1.2.1&q=');">
+  <div class="container-fluid text-center">
+    <h1><strong>Rent Style</strong></h1>
+    <br>
+    <p>Estilo não se compra, mas pode ser alugado</p>
+    <br>
+    <br>
+    <div class="container w-25 p-3">
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control">
+        <input class="form-control" type="text" placeholder="Digite o produto desejado" name="search[query]" id="search_query" />
+            <button name="button" type="submit" class="btn btn-primary">
+          <i class="fas fa-search"></i> Buscar
+        </button>
+        <br>
+        <br>
       </div>
+    </div>
+  <% end %>
+       <a class="btn btn-primary" href="#">Conheça nossos produtos</a>
   </div>
 </div>
-  
