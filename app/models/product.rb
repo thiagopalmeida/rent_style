@@ -5,5 +5,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
 
   belongs_to :user
+  has_many :transactions
   has_many_attached :photos
 end
