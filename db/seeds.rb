@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "Apagando dados anteriores..."
+Product.destroy_all
+User.destroy_all
+Transaction.destroy_all
+puts "Dados apagados!"
+
+
 puts "Creating users..."
 
 10.times do
@@ -21,9 +28,6 @@ puts "Creating users..."
   u.save
 end
 
-# puts "Apagando produtos anteriores..."
-# Product.destroy_all
-# puts "Produtos apagados!"
 puts "Creating products..."
 
 50.times do
@@ -36,7 +40,6 @@ puts "Creating products..."
     price: Faker::Commerce.price,
     user_id: rand(1..10)
   )
-
   puts "Product #{p.id} - #{p.description} created!"
   p.save
 end
