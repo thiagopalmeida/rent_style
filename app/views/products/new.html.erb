@@ -1,8 +1,29 @@
-<h1>Novo produto:</h1>
+<div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
 
-<%= render 'form', product: @product %>
+  <%= simple_form_for(@product) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :category %>
+      <%= f.input :subcategory%>
+      <%= f.input :brand %>
+      <%= f.input :size%>
+      <%= f.input :price%>
+      <%= f.input :description%>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
+  <h1>Novo produto:</h1>
+
+  <%= render 'form', product: @product %>
 
 
-<%= link_to 'Página Inicial', root_path %>
-<%# Quando tiver a página com os produtos do usuário, colocar link para ela. %>
-
+  <%= link_to 'Página Inicial', root_path %>
+  <%# Quando tiver a página com os produtos do usuário, colocar link para ela. %>
+</div>
