@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-puts "Apagando dados anteriores..."
-Product.destroy_all
+require 'open-uri'
+ puts "Apagando dados anteriores..."
+ Product.destroy_all
 User.destroy_all
 Transaction.destroy_all
 puts "Dados apagados!"
@@ -26,18 +26,26 @@ puts "Criando usuários..."
   u.save
 end
 
-puts "Criando produtos..."
-50.times do
+
+puts "Creating products..."
+20.times do
   p = Product.create(
     description: Faker::Commerce.product_name,
-    category: ["Ternos", "Vestidos", "Acessórios"].sample,
-    subcategory: ["Subcategoria 1", "Subcategoria 2", "Subcategoria 3"].sample,
-    brand: ["Armani", "Lacoste", "Dolce & Gabanna"].sample,
+    category: ["Vestido", "Acessório", "Sapato Feminino", "Terno", "Acessório Masculino", "Sapato Masculino"].sample,
+    subcategory: ["Camisa Social", "Blazer", "Calça Social", "Terninho", "Saia Midi", "Vesido Social", "Vestido de Festa", "Salto Alto", "Bijuterias", "Esporte Fino", "Black Tie", "Terno com colete", "Gravata", "Cinto" ].sample,
+    brand: [" Louis Vuitton", "Lanvin", "Prada", "Cartier", "Channel", "Gucci", "Dona Maria", "Feita em Casa", "DasLu", "DasPu"].sample,
+
     size: [rand(2..60), "PP", "P", "M", "G", "GG", "XG", "XXG", "Único"].sample,
     price: Faker::Commerce.price,
     user_id: rand(1..10)
   )
-  puts "Produto #{p.id} - #{p.description} criado!"
+
+  3.times do
+    file = URI.open('https://picsum.photos/250/150')
+    p.photos.attach(io: file, filename: 'https://picsum.photos/250/150', content_type: 'image/png')
+  end
+  puts "Product #{p.id} - #{p.description} created!"
+
   p.save
 end
 
