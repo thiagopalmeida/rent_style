@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index]
-  before_action :set_product, only: %i[show]
+  before_action :set_product, only: %i[show edit update destroy]
 
   def new
     @product = Product.new
@@ -24,6 +24,21 @@ class ProductsController < ApplicationController
 
   def index
     @products = policy_scope(Product).order(created_at: :desc)
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to @product, notice: 'Produto atualizado com sucesso.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to root_path, notice: 'Produto apagado com sucesso!'
+    # Depois redirecionar para a página com todos os produtos do usuário.
   end
 
   private
