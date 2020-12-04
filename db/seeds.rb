@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-puts "Apagando dados anteriores..."
-Product.destroy_all
+require 'open-uri'
+ puts "Apagando dados anteriores..."
+ Product.destroy_all
 User.destroy_all
 Transaction.destroy_all
 puts "Dados apagados!"
@@ -27,7 +27,7 @@ puts "Creating users..."
 end
 
 puts "Creating products..."
-50.times do
+20.times do
   p = Product.create(
     description: Faker::Commerce.product_name,
     category: ["Categoria 1", "Categoria 2", "Categoria 3"].sample,
@@ -37,6 +37,10 @@ puts "Creating products..."
     price: Faker::Commerce.price,
     user_id: rand(1..10)
   )
+  3.times do
+    file = URI.open('https://picsum.photos/250/150')
+    p.photos.attach(io: file, filename: 'https://picsum.photos/250/150', content_type: 'image/png')
+  end
   puts "Product #{p.id} - #{p.description} created!"
   p.save
 end

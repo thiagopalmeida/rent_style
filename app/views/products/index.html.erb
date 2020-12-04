@@ -1,3 +1,71 @@
+<div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
+  <h1 class="text-center">Nossos Produtos</h1>
+    <!-- Início do Carousel -->
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-4">
+        <div class="card m-1" style="width: 18rem; background-color: rgba(159,95,158,0.6)">
+          <% if product.photos.attached? %>
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <% product.photos.each do |photo| %>
+                    <div class="carousel-item active">
+                      <%= cl_image_tag photo.key, class: "d-block w-100" %>
+                    </div>
+                  <% end %>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <!-- Fim do Carousel  -->
+              <div class="card-body">
+                <h5 class="card-title text-center"><%= product.category %></h5>
+                <p class="card-text"><%= product.subcategory %> </p>
+                <p class="card-text"><%= product.size %></p>
+                <div class="row">
+                  <div class="col-4">
+                    <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></small>
+                  </div>
+                  <div class="col-4">
+                   <small><%= link_to "Eu Quero!", "#", class: "text-center text-white font-weight-bold"  %></small>
+                  </div>
+                  <div class="col-4">
+                    <small> <%= link_to "R$200,00", "#", class: "text-center text-white font-weight-bold" %></small>
+                  </div>
+                </div>
+              </div>
+          <% else %>
+            <img class="card-img-top" src="https://via.placeholder.com/250x150/000000/FFFFFF/?text=Nenhuma+Foto+Disponível" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title text-center"><%= product.category %></h5>
+              <p class="card-text"><%= product.subcategory %> </p>
+              <p class="card-text"><%= product.size %></p>
+              <div class="row">
+                <div class="col-4">
+                  <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></small>
+                </div>
+                <div class="col-4">
+                 <small><%= link_to "Eu Quero!", "#", class: "text-center text-white font-weight-bold"  %></small>
+                </div>
+                <div class="col-4">
+                  <small> <%= link_to "R$200,00", "#", class: "text-center text-white font-weight-bold" %></small>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 <h1>Listing Products</h1>
 
 <table>
@@ -33,3 +101,4 @@
 <br>
 <br>
 <br>
+</div>
