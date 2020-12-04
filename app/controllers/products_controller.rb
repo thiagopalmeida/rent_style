@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[show index]
+  skip_before_action :authenticate_user!, only: %i[show index my_products]
   before_action :set_product, only: %i[show]
 
   def new
@@ -24,6 +24,10 @@ class ProductsController < ApplicationController
 
   def index
     @products = policy_scope(Product).order(created_at: :desc)
+  end
+
+  def my_products
+    @products = policy_scope(Product).where(user_id: current_user.id)
   end
 
   private
