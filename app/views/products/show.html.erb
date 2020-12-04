@@ -6,6 +6,10 @@
 <%= @product.size %>
 <%= @product.price %>
 
-<% @product.photos.each do |photo| %>
- <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% if @product.photos.attached? %>
+  <% @product.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<% else %>
+  <p>Não tem foto</p>
 <% end %>

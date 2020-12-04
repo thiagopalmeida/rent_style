@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show index]
   before_action :set_product, only: %i[show]
 
   def new
@@ -21,10 +22,14 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def index
+    @products = policy_scope(Product).order(created_at: :desc)
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:category, :subcategory, :brand, :size, :description, :price, :photos)
+    params.require(:product).permit(:category, :subcategory, :brand, :size, :description, :price, photos: [])
   end
 
   def set_product
