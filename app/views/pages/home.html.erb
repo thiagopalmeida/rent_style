@@ -1,22 +1,22 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1602791013646-80ce7a59b501?ixlib=rb-1.2.1&q=');">
-  <div class="container-fluid text-center">
-    <h1><strong>Rent Style</strong></h1>
-    <br>
-    <p>Estilo não se compra, mas pode ser alugado</p>
-    <br>
-    <br>
-    <div class="container w-25 p-3">
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control">
-        <input class="form-control" type="text" placeholder="Digite o produto desejado" name="search[query]" id="search_query" />
-            <button name="button" type="submit" class="btn btn-primary">
-          <i class="fas fa-search"></i> Buscar
-        </button>
-        <br>
-        <br>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1602791013646-80ce7a59b501?ixlib=rb-1.2.1&q=');">
+    <div class="container-fluid text-center " style="padding-top: 5rem">
+      <h1><strong>Rent Style</strong></h1>
+      <br>
+      <p>Estilo não se compra, mas pode ser alugado</p>
+      <br>
+      <br>
+      <div class="container w-25 p-3">
+      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+        <div class="search-form-control">
+          <input class="form-control" type="text" placeholder="Digite o produto desejado" name="search[query]" id="search_query" />
+              <button name="button" type="submit" class="btn btn-primary">
+            <i class="fas fa-search"></i> Buscar
+          </button>
+          <br>
+          <br>
+        </div>
       </div>
+    <% end %>
+         <a class="btn btn-primary" href="#">Conheça nossos produtos</a>
     </div>
-  <% end %>
-       <a class="btn btn-primary" href="#">Conheça nossos produtos</a>
   </div>
-</div>
