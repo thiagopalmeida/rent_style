@@ -12,9 +12,7 @@ User.destroy_all
 Transaction.destroy_all
 puts "Dados apagados!"
 
-
 puts "Creating users..."
-
 10.times do
   u = User.create(
     email: Faker::Internet.email,
@@ -29,7 +27,6 @@ puts "Creating users..."
 end
 
 puts "Creating products..."
-
 50.times do
   p = Product.create(
     description: Faker::Commerce.product_name,
@@ -44,11 +41,7 @@ puts "Creating products..."
   p.save
 end
 
-# puts "Apagando transações anteriores..."
-# Transaction.destroy_all
-# puts "Transações apagadas!"
 puts "Creating transactions..."
-
 100.times do
   t = Transaction.create(
     user_id: rand(1..10),
