@@ -14,6 +14,7 @@
   <p>Não tem foto</p>
 <% end %>
 
+<%= link_to 'Eu quero', new_product_transaction_path(@product)%>
 <%= link_to 'Editar', edit_product_path(@product)%>
-<%= link_to 'Apagar', product_path(@product), method: :delete, 
+<%= link_to 'Apagar', product_path(@product), method: :delete,
 data: { confirm: "Confirma a exclusão do produto?"} %>
