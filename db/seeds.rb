@@ -12,7 +12,7 @@ User.destroy_all
 Transaction.destroy_all
 puts "Dados apagados!"
 
-puts "Creating users..."
+puts "Criando usuários..."
 10.times do
   u = User.create(
     email: Faker::Internet.email,
@@ -22,32 +22,33 @@ puts "Creating users..."
     telephone: Faker::PhoneNumber.phone_number,
     password: '123456'
   )
-  puts "User created: #{u.id} | #{u.name} | #{u.address} | #{u.birth_date} | #{u.telephone}"
+  puts "Usuário criado: #{u.id} | #{u.name} | #{u.address} | #{u.birth_date} | #{u.telephone}"
   u.save
 end
 
-puts "Creating products..."
+puts "Criando produtos..."
 50.times do
   p = Product.create(
     description: Faker::Commerce.product_name,
-    category: ["Categoria 1", "Categoria 2", "Categoria 3"].sample,
+    category: ["Ternos", "Vestidos", "Acessórios"].sample,
     subcategory: ["Subcategoria 1", "Subcategoria 2", "Subcategoria 3"].sample,
-    brand: ["Marca 1", "Marca 2", "Marca 3"].sample,
+    brand: ["Armani", "Lacoste", "Dolce & Gabanna"].sample,
     size: [rand(2..60), "PP", "P", "M", "G", "GG", "XG", "XXG", "Único"].sample,
     price: Faker::Commerce.price,
     user_id: rand(1..10)
   )
-  puts "Product #{p.id} - #{p.description} created!"
+  puts "Produto #{p.id} - #{p.description} criado!"
   p.save
 end
 
-puts "Creating transactions..."
+puts "Criando transações..."
 100.times do
   t = Transaction.create(
     user_id: rand(1..10),
-    product_id: rand(101..150),
-    payment_method: ["Boleto", "Cartão de Crédito", "Transferência"].sample
+    product_id: rand(1..50),
+    payment_method: ["Boleto", "Cartão de Crédito", "Transferência"].sample,
+    price: rand(10..300)
   )
-  puts "Transaction created: #{t.id} |User: #{t.user_id}| Product: #{t.product_id} | Payment method: #{t.payment_method}"
+  puts "Transação criada: #{t.id} |Usuário: #{t.user_id}| Produto: #{t.product_id} | Forma de Pagamento: #{t.payment_method}"
   t.save
 end

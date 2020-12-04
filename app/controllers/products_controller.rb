@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index]
-  before_action :set_product, only: %i[show edit update destroy]
+  before_action :set_product, only: %i[show edit update destroy availability]
 
   def new
     @product = Product.new
@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     authorize @product
 
     if @product.save
-      redirect_to root_path, notice: "Produto criado com sucesso!"
+      redirect_to product_path(@product), notice: "Produto criado com sucesso!"
     else
       render :new
     end
@@ -36,9 +36,15 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to root_path, notice: 'Produto apagado com sucesso!'
-    # Depois redirecionar para a página com todos os produtos do usuário.
+    if @product.transactions == []
+      @product.destroy
+      redirect_to root_path, notice: 'Produto apagado com sucesso!'
+    # Quando tiver a página com todos os produtos do usuário, redirecionar para ela.
+    else
+      @product.update(available: false)
+      redirect_to root_path, notice: 'Não é possível apagar o produto, pois há transação registrada envolvendo-o.
+      O produto foi marcado como indisponível.'
+    end
   end
 
   private
@@ -50,5 +56,10 @@ class ProductsController < ApplicationController
   def set_product
     @product = Product.find(params[:id])
     authorize @product
+  end
+
+  def available?
+    @product = Product.find(params[:id])
+    @product.available
   end
 end
