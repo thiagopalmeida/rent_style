@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+
   skip_before_action :authenticate_user!, only: %i[show index]
   before_action :set_product, only: %i[show edit update destroy availability]
+
 
   def new
     @product = Product.new
@@ -25,6 +27,9 @@ class ProductsController < ApplicationController
   def index
     @products = policy_scope(Product).order(created_at: :desc)
   end
+
+  def my_products
+    @products = policy_scope(Product).where(user_id: current_user.id)
 
   def update
     if @product.update(product_params)
