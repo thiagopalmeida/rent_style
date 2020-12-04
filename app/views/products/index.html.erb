@@ -9,7 +9,11 @@
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <% product.photos.each do |photo| %>
-                    <div class="carousel-item active">
+                    <% if photo.key == product.photos[0].key %>
+                      <div class="carousel-item active">
+                    <% else %>
+                      <div class="carousel-item">
+                    <% end %>
                       <%= cl_image_tag photo.key, class: "d-block w-100" %>
                     </div>
                   <% end %>
