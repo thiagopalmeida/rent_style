@@ -30,9 +30,9 @@ puts "Creating products..."
 20.times do
   p = Product.create(
     description: Faker::Commerce.product_name,
-    category: ["Categoria 1", "Categoria 2", "Categoria 3"].sample,
-    subcategory: ["Subcategoria 1", "Subcategoria 2", "Subcategoria 3"].sample,
-    brand: ["Marca 1", "Marca 2", "Marca 3"].sample,
+    category: ["Vestido", "Acessório", "Sapato Feminino", "Terno", "Acessório Masculino", "Sapato Masculino"].sample,
+    subcategory: ["Camisa Social", "Blazer", "Calça Social", "Terninho", "Saia Midi", "Vesido Social", "Vestido de Festa", "Salto Alto", "Bijuterias", "Esporte Fino", "Black Tie", "Terno com colete", "Gravata", "Cinto" ].sample,
+    brand: [" Louis Vuitton", "Lanvin", "Prada", "Cartier", "Channel", "Gucci", "Dona Maria", "Feita em Casa", "DasLu", "DasPu"].sample,
     size: [rand(2..60), "PP", "P", "M", "G", "GG", "XG", "XXG", "Único"].sample,
     price: Faker::Commerce.price,
     user_id: rand(1..10)

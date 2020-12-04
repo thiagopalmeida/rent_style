@@ -45,7 +45,7 @@
             <div class="card-body">
               <h5 class="card-title text-center"><%= product.category %></h5>
               <p class="card-text"><%= product.subcategory %> </p>
-              <p class="card-text"><%= product.size %></p>
+              <p class="card-text">Tamanho disponível: <%= product.size %></p>
               <div class="row">
                 <div class="col-4">
                   <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></small>
