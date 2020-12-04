@@ -1,20 +1,16 @@
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
+  <%= simple_form_for [@product, @transaction] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-<%= simple_form_for [@product, @transaction] do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <% @transaction.price = @product.price %>
+    <div class="price">O preço é de R$ <%= @transaction.price %></div>
+    <div class="form-inputs">
+      <%= f.input :payment_method %>
+    </div>
 
-  <% @transaction.price = @product.price %>
-  <div class="price">O preço é de R$ <%= @transaction.price %></div>
-  <div class="form-inputs">
-    <%= f.input :payment_method %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
