@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
 
   def my_products
     @products = policy_scope(Product).where(user_id: current_user.id)
+  end
 
   def update
     if @product.update(product_params)

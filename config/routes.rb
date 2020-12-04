@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     resources :transactions, only: [:new, :create]
   resources :products do
     resources :transactions, only: %i[new create]
+  end
 
   end
 
-  
+
 end
