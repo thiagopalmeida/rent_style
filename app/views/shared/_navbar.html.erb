@@ -11,16 +11,16 @@
         <li class="nav-item dropdown">
           <a class="dropdown-toggle nav-link" id="navbarDropdown" data-toggle= "dropdown" role="button" aria-haspopup='true', aria-expanded='false'> Produtos</a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Vestidos", "#", class: "dropdown-item" %>
-            <%= link_to "Acessórios", "#", class: "dropdown-item" %>
-            <%= link_to "Sapatos Femininos", "#", class: "dropdown-item" %>
+            <%= link_to "Vestidos", products_path, class: "dropdown-item" %>
+            <%= link_to "Acessórios", products_path, class: "dropdown-item" %>
+            <%= link_to "Sapatos Femininos", products_path, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
-            <%= link_to "Ternos", "#", class: "dropdown-item" %>
-            <%= link_to "Sapatos Masculinos", "#", class: "dropdown-item" %>
+            <%= link_to "Ternos", products_path, class: "dropdown-item" %>
+            <%= link_to "Sapatos Masculinos", products_path, class: "dropdown-item" %>
           </div>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">Sobre Nós</a>
+          <%= link_to "Sobre Nós", about_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">Contato</a>
