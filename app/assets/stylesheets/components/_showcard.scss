@@ -1,0 +1,62 @@
+.showcard {
+  height: 350px;
+  color: black;
+  position: relative;
+  background-color: #FFDDBB;
+  border-radius: 2px;
+
+}
+
+.showimage {
+  height: 350px;
+  color: white;
+  background: linear-gradient(135deg,
+              rgba(0, 0, 0, 0.8),
+              rgba(0, 0, 0, 0.3)
+    );
+  background-size: cover;
+}
+
+.showcard-category {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+}
+
+.showcard-subcategory {
+  position: absolute;
+  top: 40px;
+  left: 20px
+}
+
+.showcard-description {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+}
+
+.showcard-brand {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+}
+
+.showcard-size {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+
+.showcard-price {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.showcard-image {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
