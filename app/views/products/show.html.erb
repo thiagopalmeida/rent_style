@@ -4,8 +4,33 @@
   <div class="showcard">
     <div class="row">
       <div class="col-xs-4 col-sm-4">
-        <div class="showimage">
-          <h1>olha eu aqui</h1>
+        <div class="">
+          <% if @product.photos.attached? %>
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <% @product.photos.each do |photo| %>
+                    <% if  photo.key == @product.photos[0].key %>
+                      <div class="carousel-item active">
+                    <% else %>
+                      <div class="carousel-item">
+                    <% end %>
+                      <%= cl_image_tag photo.key, class: "d-block w-100 showimage" %>
+                    </div>
+                  <% end %>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <!-- Fim do Carousel  -->
+          <% else %>
+            <img class="card-img-top" src="https://via.placeholder.com/250x150/000000/FFFFFF/?text=Nenhuma+Foto+Disponível" alt="Card image cap">
+          <% end %>
         </div>
       </div>
       <div class="col-xs-8 col-sm-8">
@@ -22,10 +47,26 @@
         <% end %>
       </div>
     </div>
-      <%= link_to 'Eu quero', new_product_transaction_path(@product)%>
-      <%= link_to 'Editar', edit_product_product_path(@product)%>
-      <%= link_to 'Apagar', product_path(@product), method: :delete,
-      data: { confirm: "Confirma a exclusão do produto?"} %>
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-4 offset-sm-4 p-3">
+        <ul class="list-inline">
+          <% if  %>
+            <% @product.user.id == current_user.id %>
+              <li class="list-inline-item">
+                <%= link_to 'Editar', edit_product_product_path(@product), class: "text-decoration-none font-weight-bold"%>
+              </li>
+              <li class="list-inline-item">
+                <%= link_to 'Apagar', product_path(@product), method: :delete,
+                data: { confirm: "Confirma a exclusão do produto?"}, class: "text-decoration-none font-weight-bold" %>
+              </li>
+          <% else %>
+            <li class="list-inline-item">
+              <%= link_to 'Eu quero', new_product_transaction_path(@product), class: "text-decoration-none font-weight-bold" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
