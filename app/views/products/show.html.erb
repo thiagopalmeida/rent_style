@@ -1,36 +1,33 @@
 
 <div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
-<h1 class="text-center">Olha esse <%= @product.category %> que legal!</h1>
-  <div class="container">
-        <h3 class="text-center"><%= @product.description %></h2>
+  <h1 class="text-center">Olha esse <%= @product.category %> que legal!</h1>
+  <div class="showcard">
     <div class="row">
-      <div class="col-4">
-        <h4>Subcategoria: <%= @product.subcategory %></h5>
+      <div class="col-xs-4 col-sm-4">
+        <div class="showimage">
+          <h1>olha eu aqui</h1>
+        </div>
       </div>
-      <div class="col-4">
-        <h4>Marca: <%= @product.brand %></h4>
-        <h4>Tamanho Disponível: <%= @product.size %></h4>
-      </div>
-        <div class="col-4">
-        <h3>Preço: R$<%= @product.price %></h3>
+      <div class="col-xs-8 col-sm-8">
+        <spam class="showcard-category"><%= @product.category %></spam>
+        <spam class="showcard-description"><%= @product.description %></spam>
+        <spam class="showcard-subcategory"><%= @product.subcategory %></spam>
+        <spam class="showcard-brand"><%= @product.brand %></spam>
+        <spam class="showcard-size"><%= @product.size %></spam>
+        <spam class="showcard-price"><%= @product.price %></spam>
+        <% if @product.user.photo.attached? %>
+          <%= cl_image_tag @product.user.photo.key, class: "avatar-bordered showcard-image" %>
+        <% else %>
+          <i class="fas fa-user showcard-image"></i>
+        <% end %>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <% if @product.photos.attached? %>
-      <% @product.photos.each do |photo| %>
-        <div class="col-4">
-          <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill, class: "m-1" %>
-        </div>
-      <% end %>
-    <% else %>
-      <p>Não tem foto</p>
-    <% end %>
-    <%= link_to 'Eu quero', new_product_transaction_path(@product)%>
-    <%= link_to 'Editar', edit_product_path(@product)%>
-    <%= link_to 'Apagar', product_path(@product), method: :delete, 
-    data: { confirm: "Confirma a exclusão do produto?"} %>
-
+      <%= link_to 'Eu quero', new_product_transaction_path(@product)%>
+      <%= link_to 'Editar', edit_product_product_path(@product)%>
+      <%= link_to 'Apagar', product_path(@product), method: :delete,
+      data: { confirm: "Confirma a exclusão do produto?"} %>
   </div>
 </div>
+
+
 
