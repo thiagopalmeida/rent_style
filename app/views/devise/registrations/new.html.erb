@@ -28,7 +28,14 @@
             <%= f.input :password_confirmation,
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
-            <%= f.input :photo, as: :file %>
+            <div class="d-flex align-items-center p-2">
+              <%= f.input :photo,
+                          as: :file,
+                          input_html: { class: 'd-none', id: 'photo-input' },
+                          label_html: { class: 'upload-photo'},
+                          label: '📷 Upload a photo' %>
+              <%= image_tag "", width: 60, class: 'hidden ml-2', id: "photo-preview" %>
+            </div>
           <div class="form-actions">
             <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
           </div>
