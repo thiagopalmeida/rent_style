@@ -14,7 +14,7 @@
                     <% else %>
                       <div class="carousel-item">
                     <% end %>
-                      <%= cl_image_tag photo.key, class: "d-block w-100" %>
+                      <%= cl_image_tag photo.key, class: "d-block w-100 showimage", style: "height: 200px;" %>
                     </div>
                   <% end %>
                 </div>
@@ -29,18 +29,16 @@
               </div>
           <!-- Fim do Carousel  -->
               <div class="card-body">
-                <h5 class="card-title text-center"><%= product.category %></h5>
-                <p class="card-text"><%= product.subcategory %> </p>
-                <p class="card-text"><%= product.size %></p>
-                <div class="row">
-                  <div class="col-4">
-                    <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></small>
+                <h5 class="card-title text-center font-weight-bold"><%= product.category %></h5>
+                <p class="card-text">Marca: <%= product.brand %> </p>
+                <p class="card-text">Tamanho: <%= product.size %></p>
+                <p class="card-text">R$<%= product.price %></p>
+                <div class="row justify-content-center">
+                  <div class="col-6 text-center">
+                    <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-black text-decoration-none font-weight-bold" %></small>
                   </div>
-                  <div class="col-4">
-                   <small><%= link_to "Eu Quero!", new_product_transaction_path(product), class: "text-center text-white font-weight-bold"  %></small>
-                  </div>
-                  <div class="col-4">
-                    <small> <%= link_to "R$200,00", "#", class: "text-center text-white font-weight-bold" %></small>
+                  <div class="col-6 text-center">
+                   <small><%= link_to "Eu Quero!", new_product_transaction_path(product), class: "text-center text-black text-decoration-none font-weight-bold"  %></small>
                   </div>
                 </div>
               </div>

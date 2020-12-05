@@ -1,9 +1,8 @@
 <div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
-  <h1 class="text-center">Olha esse <%= @product.category %> que legal!</h1>
+  <h2 class="text-center"><%= @product.category %> de qualidade!</h2>
   <div class="showcard">
-    <h3 class="text-center"><%= @product.description %></h3>
-    <div class="row">
-      <div class="col-xs-4 col-sm-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-4 col-sm-4">
         <div class="">
           <% if @product.photos.attached? %>
               <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -33,13 +32,14 @@
           <% end %>
         </div>
       </div>
-      <div class="col-xs-8 col-sm-8">
-        <spam class="showcard-category"><%= @product.category %></spam>
+      <div class="col-xl-4 col-sm-4 subcard">
         <spam class="showcard-description"><%= @product.description %></spam>
-        <spam class="showcard-subcategory"><%= @product.subcategory %></spam>
-        <spam class="showcard-brand"><%= @product.brand %></spam>
-        <spam class="showcard-size"><%= @product.size %></spam>
-        <spam class="showcard-price"><%= @product.price %></spam>
+        <spam class="showcard-brand"><strong>Marca: </strong><%= @product.brand %></spam>
+        <spam class="showcard-size"><strong>Tamanho: </strong><%= @product.size %></spam>
+        <!-- <spam class="showcard-category"><%= @product.category %></spam> -->
+        <!-- <spam class="showcard-subcategory"><%= @product.subcategory %></spam> -->
+        <spam class="showcard-price">Valor:R$<%= @product.price %></spam>
+        <spam class="showcard-text">por noite</spam>
         <% if @product.user.photo.attached? %>
           <%= cl_image_tag @product.user.photo.key, class: "avatar-bordered showcard-image" %>
         <% else %>
@@ -48,8 +48,8 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-xs-12 col-sm-4 offset-sm-4 p-3">
-        <ul class="list-inline">
+      <div class="col-6 p-3">
+        <ul class="list-inline text-center">
           <% if  %>
             <% @product.user.id == current_user.id %>
               <li class="list-inline-item">
@@ -61,7 +61,7 @@
               </li>
           <% else %>
             <li class="list-inline-item">
-              <%= link_to 'Eu quero', new_product_transaction_path(@product), class: "text-decoration-none font-weight-bold" %>
+              <%= link_to 'Eu quero', new_product_transaction_path(@product), class: "btn btn-primary", label: 'Eu Quero!' %>
             </li>
           <% end %>
         </ul>

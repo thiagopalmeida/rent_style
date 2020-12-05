@@ -1,10 +1,13 @@
 .showcard {
-  height: 350px;
-  color: black;
   position: relative;
+  height: 3200px;
+  color: black;
+}
+
+.subcard {
   background-color: #FFDDBB;
   border-radius: 2px;
-
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
 }
 
 .showimage {
@@ -15,12 +18,56 @@
               rgba(0, 0, 0, 0.3)
     );
   background-size: cover;
+  background-position: center;
+}
+
+
+.showcard-description {
+  position: absolute;
+  top: 85px;
+  left: 20px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.showcard-brand {
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+}
+
+.showcard-size {
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+}
+
+.showcard-price {
+  position: absolute;
+  bottom: 30px;
+  right: 35px;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.showcard-text {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  font-weight: bold;
+  font-size: x-small;
+}
+
+
+.showcard-image {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .showcard-category {
   position: absolute;
-
-  top: 20px;
+  top: 30px;
   left: 20px;
 }
 
@@ -29,34 +76,3 @@
   top: 40px;
   left: 20px
 }
-
-.showcard-description {
-  position: absolute;
-  top: 60px;
-  left: 20px;
-}
-
-.showcard-brand {
-  position: absolute;
-  top: 80px;
-  left: 20px;
-}
-
-.showcard-size {
-  position: absolute;
-  top: 100px;
-  left: 20px;
-}
-
-.showcard-price {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-}
-
-.showcard-image {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
