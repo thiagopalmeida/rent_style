@@ -1,8 +1,7 @@
 <div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
   <h1 class="text-center">Olha esse <%= @product.category %> que legal!</h1>
   <div class="showcard">
-  <div class="container">
-        <h3 class="text-center"><%= @product.description %></h2>
+    <h3 class="text-center"><%= @product.description %></h3>
     <div class="row">
       <div class="col-xs-4 col-sm-4">
         <div class="">
@@ -54,7 +53,7 @@
           <% if  %>
             <% @product.user.id == current_user.id %>
               <li class="list-inline-item">
-                <%= link_to 'Editar', edit_product_product_path(@product), class: "text-decoration-none font-weight-bold"%>
+                <%= link_to 'Editar', edit_product_path(@product), class: "text-decoration-none font-weight-bold" %>
               </li>
               <li class="list-inline-item">
                 <%= link_to 'Apagar', product_path(@product), method: :delete,
@@ -69,22 +68,9 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <% if @product.photos.attached? %>
-      <% @product.photos.each do |photo| %>
-        <div class="col-4">
-          <%= cl_image_tag photo.key, height: 400, width: 300, crop: :fill, class: "m-1" %>
-        </div>
-      <% end %>
-    <% else %>
-      <p>Não tem foto</p>
-    <% end %>
-    <%= link_to 'Eu quero', new_product_transaction_path(@product)%>
-    <%= link_to 'Editar', edit_product_product_path(@product)%>
-    <%= link_to 'Apagar', product_path(@product), method: :delete,
-    data: { confirm: "Confirma a exclusão do produto?"} %>
-  </div>
 </div>
+</div>
+
 
 
 
