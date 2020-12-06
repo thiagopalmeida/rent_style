@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+# to help with coordinates
+gem 'geocoder'
 # to help authorizer user
 gem 'pundit'
 # to help authentication user
