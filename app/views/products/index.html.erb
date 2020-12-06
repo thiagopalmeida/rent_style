@@ -1,77 +1,75 @@
-<div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
+<div class="" style="padding-top: 6rem;">
   <h1 class="text-center">Nossos Produtos</h1>
-
-  <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-  <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-4">
-        <div class="card m-1" style="width: 18rem; background-color: rgba(159,95,158,0.6)">
-          <!-- Início do Carousel -->
-          <% if product.photos.attached? %>
-              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <% product.photos.each do |photo| %>
-                    <% if photo.key == product.photos[0].key %>
-                      <div class="carousel-item active">
-                    <% else %>
-                      <div class="carousel-item">
-                    <% end %>
-                      <%= cl_image_tag photo.key, class: "d-block w-100 showimage", style: "height: 200px;" %>
-                    </div>
-                  <% end %>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-          <!-- Fim do Carousel  -->
-              <div class="card-body">
-                <h5 class="card-title text-center font-weight-bold"><%= product.category %></h5>
-                <p class="card-text">Marca: <%= product.brand %> </p>
-                <p class="card-text">Tamanho: <%= product.size %></p>
-                <p class="card-text">R$<%= product.price %></p>
-                <div class="row justify-content-center">
-                  <div class="col-6 text-center">
-                    <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-black text-decoration-none font-weight-bold" %></small>
-                  </div>
-                  <div class="col-6 text-center">
-                   <small><%= link_to "Eu Quero!", new_product_transaction_path(product), class: "text-center text-black text-decoration-none font-weight-bold"  %></small>
-                  </div>
-                </div>
-              </div>
-          <% else %>
-          <!-- Cards Sem Foto  -->
-            <img class="card-img-top" src="https://via.placeholder.com/250x150/000000/FFFFFF/?text=Nenhuma+Foto+Disponível" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title text-center"><%= product.category %></h5>
-              <p class="card-text"><%= product.subcategory %> </p>
-              <p class="card-text">Tamanho disponível: <%= product.size %></p>
-              <div class="row">
-                <div class="col-4">
-                  <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></small>
-                </div>
-                <div class="col-4">
-                 <small><%= link_to "Eu Quero!", new_product_transaction_path(@product), class: "text-center text-white font-weight-bold"  %></small>
-                </div>
-                <div class="col-4">
-                  <small> <%= link_to "R$200,00", "#", class: "text-center text-white font-weight-bold" %></small>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <!-- Fim Cards Sem Foto  -->
-        </div>
-      </div>
-    <% end %>
-  </div>
 </div>
+  <div class="main-container">
+    <div id="map"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="cards-container">
+        <% @products.each do |product| %>
+            <div class="card m-1" style="width: 18rem; background-color: rgba(159,95,158,0.6)">
+              <!-- Início do Carousel -->
+              <% if product.photos.attached? %>
+                  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <% product.photos.each do |photo| %>
+                        <% if photo.key == product.photos[0].key %>
+                          <div class="carousel-item active">
+                        <% else %>
+                          <div class="carousel-item">
+                        <% end %>
+                          <%= cl_image_tag photo.key, class: "d-block w-100 showimage", style: "height: 200px;" %>
+                        </div>
+                      <% end %>
+
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+              <!-- Fim do Carousel  -->
+                  <div class="card-body">
+                    <h5 class="card-title text-center font-weight-bold"><%= product.category %></h5>
+                    <p class="card-text">Marca: <%= product.brand %> </p>
+                    <p class="card-text">Tamanho: <%= product.size %></p>
+                    <p class="card-text">R$<%= product.price %></p>
+                    <div class="row justify-content-center">
+                      <div class="col-6 text-center">
+                        <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-black text-decoration-none font-weight-bold" %></small>
+                      </div>
+                      <div class="col-6 text-center">
+                       <small><%= link_to "Eu Quero!", new_product_transaction_path(product), class: "text-center text-black text-decoration-none font-weight-bold"  %></small>
+                      </div>
+                    </div>
+                  </div>
+              <% else %>
+              <!-- Cards Sem Foto  -->
+                <img class="card-img-top" src="https://via.placeholder.com/250x150/000000/FFFFFF/?text=Nenhuma+Foto+Disponível" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title text-center"><%= product.category %></h5>
+                  <p class="card-text"><%= product.subcategory %> </p>
+                  <p class="card-text">Tamanho disponível: <%= product.size %></p>
+                  <div class="row">
+                    <div class="col-4">
+                      <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></small>
+                    </div>
+                    <div class="col-4">
+                     <small><%= link_to "Eu Quero!", new_product_transaction_path(@product), class: "text-center text-white font-weight-bold"  %></small>
+                    </div>
+                    <div class="col-4">
+                      <small> <%= link_to "R$200,00", "#", class: "text-center text-white font-weight-bold" %></small>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+              </div>
+              <!-- Fim Cards Sem Foto  -->
+          </div>
+        <% end %>
+    </div>
+  </div>
