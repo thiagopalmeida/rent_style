@@ -26,6 +26,16 @@ class ProductsController < ApplicationController
 
   def index
     @products = policy_scope(Product).order(created_at: :desc)
+
+    @users = User.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('rentStyle.png')
+      }
+    end
   end
 
   def my_products

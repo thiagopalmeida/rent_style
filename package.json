@@ -2,12 +2,15 @@
   "name": "rent_style",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.7.0",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "mapbox-gl": "^1.13.0",
+    "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },
