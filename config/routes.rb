@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     collection do
       get :my_products
     end
-    
+
     resources :transactions, only: %i[new create]
+    resources :reviews, only: [ :new, :create ]
   end
-  resources :reviews, only: [ :new, :create ]
 end
