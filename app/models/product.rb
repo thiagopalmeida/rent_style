@@ -6,5 +6,6 @@ class Product < ApplicationRecord
 
   belongs_to :user
   has_many :transactions
+  has_many :reviews, dependent: :destroy
   has_many_attached :photos, dependent: :destroy
 end
