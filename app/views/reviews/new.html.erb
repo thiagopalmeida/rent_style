@@ -1,7 +1,7 @@
 <div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
   <div class="row">
     <div class="col-xs-12 col-sm-6 offset-sm-3">
-      <%= simple_form_for @review do |f| %>
+      <%= simple_form_for [@product, @review] do |f| %>
         <%= f.input :content, label: "Compartilhe sua experiência" %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Avalie" %>
         <%= f.submit "Enviar" %>
