@@ -5,4 +5,48 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  h2 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 12px;
+  }
 }
+
+.main-container {
+  display: flex;
+  padding-bottom: 3rem;
+  margin: 2rem;
+}
+
+.cards-container {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+flex: 0 0 30%;
+}
+
+#map {
+height: 100vh;
+flex: 0 0 350px;
+position: sticky !important;
+top: 0 !important;
+margin-right: 1rem;
+}
+
+@media(max-width: 992px) {
+  .card {
+  flex: 0 0 40%;
+  }
+}
+
+@media(max-width: 768px) {
+  .card {
+  flex: 0 0 100%;
+  }
+}
+

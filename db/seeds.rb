@@ -6,19 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
+require 'json'
+address = []
+File.foreach('./db/address.json') do |line|
+  address << JSON.parse(line.gsub('=>', ':'))
+end
 
 puts "Apagando dados anteriores..."
-# Product.destroy_all
-# User.destroy_all
-# Transaction.destroy_all
+Product.destroy_all
+User.destroy_all
+Transaction.destroy_all
 puts "Dados apagados!"
 
 puts "Criando usuários..."
 10.times do
+  rua = address.sample['properties']['street']
+  numero = address.sample['properties']['number']
   u = User.create(
     email: Faker::Internet.email,
     name: Faker::Name.name_with_middle,
-    address: Faker::Address.street_address,
+    address: "#{rua}, #{numero}",
     birth_date: Faker::Date.birthday,
     telephone: Faker::PhoneNumber.phone_number,
     password: '123456'
@@ -29,8 +36,8 @@ end
 
 
 puts "Creating products..."
-20.times do
-  p = Product.create(
+15.times do
+  p = Product.create!(
     description: Faker::Commerce.product_name,
     category: ["Vestido", "Acessório", "Sapato Feminino", "Terno", "Acessório Masculino", "Sapato Masculino"].sample,
     subcategory: ["Camisa Social", "Blazer", "Calça Social", "Terninho", "Saia Midi", "Vesido Social", "Vestido de Festa", "Salto Alto", "Bijuterias", "Esporte Fino", "Black Tie", "Terno com colete", "Gravata", "Cinto" ].sample,
