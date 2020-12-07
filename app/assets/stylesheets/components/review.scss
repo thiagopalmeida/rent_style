@@ -1,0 +1,14 @@
+.review {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background-color: #FFDDBB;
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+
+.review-content {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}

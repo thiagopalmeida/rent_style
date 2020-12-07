@@ -24,10 +24,11 @@
 
 .showcard-description {
   position: absolute;
-  top: 85px;
+  top: 75px;
   left: 20px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
+  line-height: 1.4;
 }
 
 .showcard-brand {
@@ -74,5 +75,23 @@
 .showcard-subcategory {
   position: absolute;
   top: 40px;
+  left: 20px
+}
+
+.showcard-edit {
+  position: absolute;
+  bottom: 25px;
+  left: 20px
+}
+
+.showcard-delete {
+  position: absolute;
+  bottom: 25px;
+  left: 90px
+}
+
+.showcard-purchase {
+  position: absolute;
+  bottom: 25px;
   left: 20px
 }
