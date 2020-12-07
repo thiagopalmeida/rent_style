@@ -20,4 +20,8 @@ class ProductPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def my_products?
+    true
+  end
 end

@@ -9,4 +9,7 @@ class TransactionPolicy < ApplicationPolicy
     true
   end
 
+  def my_products?
+    true
+  end
 end

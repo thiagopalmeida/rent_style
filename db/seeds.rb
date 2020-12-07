@@ -34,13 +34,12 @@ puts "Criando usuários..."
   u.save
 end
 
-
-puts "Creating products..."
+puts "Criando produtos..."
 15.times do
   p = Product.create!(
     description: Faker::Commerce.product_name,
     category: ["Vestido", "Acessório", "Sapato Feminino", "Terno", "Acessório Masculino", "Sapato Masculino"].sample,
-    subcategory: ["Camisa Social", "Blazer", "Calça Social", "Terninho", "Saia Midi", "Vesido Social", "Vestido de Festa", "Salto Alto", "Bijuterias", "Esporte Fino", "Black Tie", "Terno com colete", "Gravata", "Cinto" ].sample,
+    subcategory: ["Camisa Social", "Blazer", "Calça Social", "Terninho", "Saia Midi", "Vesido Social", "Vestido de Festa", "Salto Alto", "Bijuterias", "Esporte Fino", "Black Tie", "Terno com colete", "Gravata", "Cinto"].sample,
     brand: [" Louis Vuitton", "Lanvin", "Prada", "Cartier", "Channel", "Gucci", "Dona Maria", "Feita em Casa", "DasLu", "DasPu"].sample,
 
     size: [rand(2..60), "PP", "P", "M", "G", "GG", "XG", "XXG", "Único"].sample,
@@ -52,7 +51,7 @@ puts "Creating products..."
     file = URI.open('https://picsum.photos/250/150')
     p.photos.attach(io: file, filename: 'https://picsum.photos/250/150', content_type: 'image/png')
   end
-  puts "Product #{p.id} - #{p.description} created!"
+  puts "Produto #{p.id} - #{p.description} criado!"
 
   p.save
 end
