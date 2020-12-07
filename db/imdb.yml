@@ -1,0 +1,69 @@
+movies:
+  - title: "Superman"
+    year: 1978
+    director_slug: donner
+    syllabus: |
+      An alien orphan is sent from his dying planet to Earth,
+      where he grows up to become his adoptive home's first and greatest superhero.
+  - title: "Batman v Superman: Dawn of Justice"
+    year: 2016
+    director_slug: snyder
+    syllabus: |
+      Fearing the actions of a god-like Super Hero left unchecked,
+      Gotham City's own formidable, forceful vigilante takes on Metropolis'
+      most revered, modern-day savior, while the world wrestles with what
+      sort of hero it really needs. And with Batman and Superman at war
+      with one another, a new threat quickly arises, putting mankind in
+      greater danger than it's ever known before.
+  - title: "Superman Returns"
+    year: 2006
+    director_slug: singer
+    syllabus: |
+      Superman reappears after a long absence, but is challenged by an old foe
+      who uses Kryptonian technology for world domination.
+  - title: "Batman Begins"
+    year: 2005
+    director_slug: nolan
+    syllabus: |
+      After training with his mentor, Batman begins his war on crime to free the
+      crime-ridden Gotham City from corruption that the Scarecrow and the League
+      of Shadows have cast upon it.
+  - title: "The Dark Knight"
+    year: 2008
+    director_slug: nolan
+    syllabus: |
+      When the menace known as the Joker wreaks havoc and chaos on the people of Gotham,
+      the caped crusader must come to terms with one of the greatest psychological
+      tests of his ability to fight injustice.
+  - title: "The Dark Knight Rises"
+    year: 2012
+    director_slug: nolan
+    syllabus: |
+      Eight years after the Joker's reign of anarchy, the Dark Knight is
+      forced to return from his imposed exile to save Gotham City from the brutal
+      guerrilla terrorist Bane with the help of the enigmatic Catwoman.
+
+series:
+  - title: "Adventures of Superman"
+    year: 1952
+    syllabus: |
+      The Man of Steel fights crime with help from his friends at the Daily Planet.
+  - title: "Lois & Clark: The New Adventures of Superman"
+    year: 1993
+    syllabus: |
+      In addition to fighting evil, Superman has a burning romance with Lois Lane
+      in both his identities.
+
+directors:
+  - slug: nolan
+    first_name: Christopher
+    last_name: Nolan
+  - slug: donner
+    first_name: Richard
+    last_name: Donner
+  - slug: snyder
+    first_name: Zack
+    last_name: Snyder
+  - slug: singer
+    first_name: Bryan
+    last_name: Singer
