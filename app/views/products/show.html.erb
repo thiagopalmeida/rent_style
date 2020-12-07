@@ -53,7 +53,7 @@
                   data: { confirm: "Confirma a exclusão do produto?"}, class: "text-decoration-none font-weight-bold" %>
           </spam>
         <% else %>
-          <spam class="showcard-purchase"><%= link_to 'Eu quero', new_product_transaction_path(@product), class: "btn btn-primary", label: 'Eu Quero!' %></spam>
+          <spam class="showcard-purchase"><%= link_to 'Eu quero', new_product_transaction_path(@product), class: "btn btn-primary", style: "font-size: 22px;", label: 'Eu Quero!' %></spam>
         <% end %>
         <% if @product.user.photo.attached? %>
           <%= cl_image_tag @product.user.photo.key, class: "avatar-bordered showcard-image" %>
@@ -69,10 +69,13 @@
       </div>
       <% @product.reviews.each do |review| %>
         <div class="row justify-content-center mt-2">
-          <div class="col-9">
+          <div class="col-6">
             <div class="review">
-                <div class="">
-                  <p class="review-content"><%= review.content %></p>
+                <div class="content">
+                  <p class="review-content">"<%= review.content %>"</p>
+                </div>
+                <div class="review-user">
+                  <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 </div>
             </div>
           </div>
