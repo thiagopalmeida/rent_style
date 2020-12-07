@@ -11,7 +11,7 @@
             <div class="card m-1" style="width: 18rem; background-color: rgba(159,95,158,0.6)">
               <!-- Início do Carousel -->
               <% if product.photos.attached? %>
-                  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                  <div id="carouselExampleControls<%= product.id %>" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                       <% product.photos.each do |photo| %>
                         <% if photo.key == product.photos[0].key %>
@@ -22,16 +22,15 @@
                           <%= cl_image_tag photo.key, class: "d-block w-100 showimage", style: "height: 200px;" %>
                         </div>
                       <% end %>
-
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls<%= product.id %>" role="button" data-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls<%= product.id %>" role="button" data-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                    </div>
               <!-- Fim do Carousel  -->
                   <div class="card-body">
                     <h5 class="card-title text-center font-weight-bold"><%= product.category %></h5>
@@ -47,6 +46,7 @@
                       </div>
                     </div>
                   </div>
+                </div>
               <% else %>
               <!-- Cards Sem Foto  -->
                 <img class="card-img-top" src="https://via.placeholder.com/250x150/000000/FFFFFF/?text=Nenhuma+Foto+Disponível" alt="Card image cap">
@@ -69,7 +69,6 @@
             <% end %>
               </div>
               <!-- Fim Cards Sem Foto  -->
-          </div>
         <% end %>
     </div>
   </div>
