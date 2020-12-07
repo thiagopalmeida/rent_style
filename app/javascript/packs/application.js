@@ -30,7 +30,8 @@ import { initMapboxShow} from '../plugins/init_mapbox_show';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-import { previewImageOnFileSelect } from '../components/photo_preview'
+import { previewImageOnFileSelect } from '../components/photo_preview';
+import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -39,5 +40,6 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   initMapbox();
   initMapboxShow();
+  initStarRating();
 });
 

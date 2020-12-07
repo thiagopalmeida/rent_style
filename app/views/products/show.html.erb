@@ -69,6 +69,7 @@
           <% else %>
             <li class="list-inline-item">
               <%= link_to 'Eu quero', new_product_transaction_path(@product), class: "btn btn-primary", label: 'Eu Quero!' %>
+              <%= link_to 'Avalie o produto', new_product_review_p_path(@product) %>
             </li>
           <% end %>
         </ul>
