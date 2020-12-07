@@ -73,3 +73,4 @@ gem 'cloudinary', '~> 1.16.0'
 # Added 'faker' to tests
 gem 'faker'
 
+gem 'rgeo-geojson'

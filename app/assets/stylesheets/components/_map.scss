@@ -5,6 +5,12 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  h2 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 12px;
+  }
 }
 
 .main-container {
