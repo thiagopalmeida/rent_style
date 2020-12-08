@@ -73,10 +73,27 @@
         <% end %>
       </div>
     </div>
-      <div class="row justify-content-center mt-2">
-        <div class="col-9 pl-3 text-center">
-          <%= link_to "Avalie", new_product_review_path(@product) , class: "btn btn-outline-primary" %>
-        </div>
+
+    <div class="row justify-content-center">
+      <div class="col-6 p-3">
+        <ul class="list-inline text-center">
+          <% if  %>
+            <% @product.user == current_user %>
+              <li class="list-inline-item">
+                <%= link_to 'Editar', edit_product_path(@product), class: "text-decoration-none font-weight-bold" %>
+              </li>
+              <li class="list-inline-item">
+                <%= link_to 'Apagar', product_path(@product), method: :delete,
+                data: { confirm: "Confirma a exclusão do produto?"} %>
+              </li>
+          <% else %>
+            <li class="list-inline-item">
+              <%= link_to 'Eu quero', new_product_transaction_path(@product), class: "btn btn-primary", label: 'Eu Quero!' %>
+              <%= link_to 'Avalie o produto', new_product_review_path(@product) %>
+            </li>
+          <% end %>
+        </ul>
+
       </div>
       <% @product.reviews.each do |review| %>
         <div class="row justify-content-center mt-2">

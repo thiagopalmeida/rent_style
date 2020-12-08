@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     end
 
     resources :transactions, only: %i[new create]
-    resources :reviews, only: [ :new, :create ]
+    resources :reviews, only: %i[new create]
   end
 end

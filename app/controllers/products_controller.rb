@@ -44,7 +44,14 @@ class ProductsController < ApplicationController
   end
 
   def my_products
-    @products = policy_scope(Product).where(user_id: current_user.id)
+    @my_products = policy_scope(Product).where(user_id: current_user.id)
+    @my_products_transactions = policy_scope(Transaction).where(product_id: @my_products.ids)
+    @my_transactions = policy_scope(Transaction).where(user_id: current_user.id)
+    # @reviews = policy_scope(Review).where(user_id: current_user.id)
+    authorize @my_products
+    authorize @my_products_transactions
+    authorize @my_transactions
+    # authorize @reviews
   end
 
   def update
@@ -59,8 +66,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.transactions == []
       @product.destroy
-      redirect_to root_path, notice: 'Produto apagado com sucesso!'
-    # Quando tiver a pagina com todos os produtos do usuario, redirecionar para ela.
+      redirect_to my_products_products_path, notice: 'Produto apagado com sucesso!'
     else
       @product.update(available: false)
       redirect_to root_path, notice: 'Não é possível apagar o produto, pois há transação registrada envolvendo-o.
