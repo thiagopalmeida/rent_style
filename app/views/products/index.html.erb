@@ -20,7 +20,7 @@
                         <% else %>
                           <div class="carousel-item">
                         <% end %>
-                          <%= cl_image_tag photo.key, class: "d-block w-100 showimage", style: "height: 200px;" %>
+                          <%= cl_image_tag photo.key, class: "d-block w-100 showimage", style: "height: 200px; object-fit: cover;" %>
                         </div>
                       <% end %>
                         <a class="carousel-control-prev" href="#carouselExampleControls<%= product.id %>" role="button" data-slide="prev">
@@ -37,7 +37,7 @@
                     <h5 class="card-title text-center font-weight-bold p-1"><%= product.category %></h5>
                     <p class="card-brand">Marca: <%= product.brand %> </p>
                     <p class="card-size">Tamanho: <%= product.size %></p>
-                    <p class="card-price">R$<%= product.price %></p>
+                    <p class="card-price">R$ <%= product.price.to_s[0..-3] %>,00</p>
                     <spam class="card-want"><%= link_to "Eu Quero!", new_product_transaction_path(product), class: "text-center btn btn-warning font-weight-bold"  %></spam>
                     <spam class="card-info" ><%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></spam>
                   </div>
