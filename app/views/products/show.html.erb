@@ -56,7 +56,7 @@
         <spam class="showcard-size"><strong>Tamanho: </strong><%= @product.size %></spam>
         <!-- <spam class="showcard-category"><%= @product.category %></spam> -->
         <!-- <spam class="showcard-subcategory"><%= @product.subcategory %></spam> -->
-        <spam class="showcard-price">Valor:R$<%= @product.price %></spam>
+        <spam class="showcard-price">Valor:R$<%= @product.price %>,00</spam>
         <spam class="showcard-text">por noite</spam>
         <% if @product.user == current_user %>
           <spam class="showcard-edit"><%= link_to 'Editar', edit_product_path(@product), class: "text-decoration-none font-weight-bold" %></spam>

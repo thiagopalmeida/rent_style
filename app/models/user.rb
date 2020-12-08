@@ -11,10 +11,10 @@ class User < ApplicationRecord
 
   validates :name, :address, presence: true
 
-  validate :birth_date_cannot_be_in_the_future
+  # validate :birth_date_cannot_be_in_the_future
 
-  def birth_date_cannot_be_in_the_future
-    birth_date >= Time.now.strftime("%Y%m%d").to_i
-    errors.add(:birth_date, "can't be in the future")
-  end
+  # def birth_date_cannot_be_in_the_future
+  #   birth_date >= Time.now.strftime("%Y%m%d").to_i
+  #   errors.add(:birth_date, "can't be in the future")
+  # end
 end

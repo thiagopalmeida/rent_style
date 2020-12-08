@@ -12,10 +12,7 @@
           <a class="dropdown-toggle nav-link font-weight-bold" id="navbarDropdown" data-toggle= "dropdown" role="button" aria-haspopup='true', aria-expanded='false'> Produtos</a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-            <% if user_signed_in? %>
-              <%= link_to "Adicionar Produto", new_product_path, class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-            <% end %>
+
             <%= link_to "Vestidos", products_path(query: 'vestido'), class: "dropdown-item" %>
             <%= link_to "Acessórios", products_path(query: 'acessório'), class: "dropdown-item" %>
             <%= link_to "Sapatos Femininos", products_path(query: 'sapato feminino'), class: "dropdown-item" %>
@@ -27,13 +24,14 @@
           </div>
         </li>
         <li class="nav-item">
-        <%= link_to "Adicionar produto", new_product_path, class: "nav-link font-weight-bold" %>
-          <%# <a href="#" class="nav-link font-weight-bold">Adicionar Produto</a> %>
+          <% if user_signed_in? %>
+            <%= link_to "Adicionar Produto", new_product_path, class: "nav-link font-weight-bold" %>
+          <% end %>
         </li>
         <li class="nav-item">
 
           <%= link_to "Sobre Nós", about_path, class: "nav-link font-weight-bold" %>
-        </li>       
+        </li>
 
         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link font-weight-bold" %>
@@ -48,6 +46,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               <%= link_to "Editar conta", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Meus Produtos", my_products_products_path, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>

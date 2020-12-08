@@ -24,4 +24,8 @@ class ProductPolicy < ApplicationPolicy
   def my_products?
     true
   end
+
+  def pause?
+    true
+  end
 end
