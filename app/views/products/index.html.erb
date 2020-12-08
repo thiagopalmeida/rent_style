@@ -8,7 +8,8 @@
     </div>
     <div class="cards-container">
         <% @products.each do |product| %>
-            <div class="card m-1" style="width: 18rem; background-color: rgba(159,95,158,0.6)">
+          <% if product.available? %>
+            <div class="card m-1" style="width: 45rem; background-color: rgba(159,95,158,0.6)">
               <!-- Início do Carousel -->
               <% if product.photos.attached? %>
                   <div id="carouselExampleControls<%= product.id %>" class="carousel slide" data-ride="carousel">
@@ -32,43 +33,31 @@
                         </a>
                     </div>
               <!-- Fim do Carousel  -->
-                  <div class="card-body">
-                    <h5 class="card-title text-center font-weight-bold"><%= product.category %></h5>
-                    <p class="card-text">Marca: <%= product.brand %> </p>
-                    <p class="card-text">Tamanho: <%= product.size %></p>
-                    <p class="card-text">R$<%= product.price %></p>
-                    <div class="row justify-content-center">
-                      <div class="col-6 text-center">
-                        <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-black text-decoration-none font-weight-bold" %></small>
-                      </div>
-                      <div class="col-6 text-center">
-                       <small><%= link_to "Eu Quero!", new_product_transaction_path(product), class: "text-center text-black text-decoration-none font-weight-bold"  %></small>
-                      </div>
-                    </div>
+                  <div class="card-body p-1">
+                    <h5 class="card-title text-center font-weight-bold p-1"><%= product.category %></h5>
+                    <p class="card-brand">Marca: <%= product.brand %> </p>
+                    <p class="card-size">Tamanho: <%= product.size %></p>
+                    <p class="card-price">R$<%= product.price %></p>
+                    <spam class="card-want"><%= link_to "Eu Quero!", new_product_transaction_path(product), class: "text-center btn btn-warning font-weight-bold"  %></spam>
+                    <spam class="card-info" ><%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></spam>
                   </div>
                 </div>
               <% else %>
               <!-- Cards Sem Foto  -->
                 <img class="card-img-top" src="https://via.placeholder.com/250x150/000000/FFFFFF/?text=Nenhuma+Foto+Disponível" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title text-center"><%= product.category %></h5>
-                  <p class="card-text"><%= product.subcategory %> </p>
-                  <p class="card-text">Tamanho disponível: <%= product.size %></p>
-                  <div class="row">
-                    <div class="col-4">
-                      <small> <%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></small>
-                    </div>
-                    <div class="col-4">
-                     <small><%= link_to "Eu Quero!", new_product_transaction_path(@product), class: "text-center text-white font-weight-bold"  %></small>
-                    </div>
-                    <div class="col-4">
-                      <small> <%= link_to "R$200,00", "#", class: "text-center text-white font-weight-bold" %></small>
-                    </div>
+                <div class="card-body p-1">
+                    <h5 class="card-title text-center font-weight-bold p-1"><%= product.category %></h5>
+                    <p class="card-brand">Marca: <%= product.brand %> </p>
+                    <p class="card-size">Tamanho: <%= product.size %></p>
+                    <p class="card-price">R$<%= product.price %></p>
+                    <spam class="card-want"><%= link_to "Eu Quero!", new_product_transaction_path(product), class: "text-center btn btn-warning font-weight-bold"  %></spam>
+                    <spam class="card-info" ><%= link_to "Mais Info", product_path(product), class: "text-center text-white font-weight-bold" %></spam>
                   </div>
                 </div>
-            <% end %>
-              </div>
+              <% end %>
+            </div>
               <!-- Fim Cards Sem Foto  -->
         <% end %>
+      <% end %>
     </div>
   </div>

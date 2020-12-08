@@ -27,26 +27,23 @@
 }
 
 .card {
-flex: 0 0 30%;
+flex: 0 0 45%;
 }
 
 #map {
 height: 100vh;
-flex: 0 0 350px;
+flex: 0 0 700px;
 position: sticky !important;
 top: 0 !important;
 margin-right: 1rem;
 }
 
-@media(max-width: 992px) {
-  .card {
-  flex: 0 0 40%;
-  }
-}
-
 @media(max-width: 768px) {
   .card {
   flex: 0 0 100%;
+  }
+  #map {
+    flex: 0 0 350px;
   }
 }
 

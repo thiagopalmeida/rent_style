@@ -1,0 +1,26 @@
+.review {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  background-color: #FFDDBB;
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+
+.review-content {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+
+.review-user {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+}
+
+.review-rating{
+  position: absolute;
+  top: 15px;
+  right: 125px;
+}

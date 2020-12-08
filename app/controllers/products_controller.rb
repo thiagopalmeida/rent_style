@@ -74,6 +74,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def pause
+    @product = Product.find(params[:product_id])
+    authorize @product
+    @product.toggle!(:available)
+    redirect_to product_path(@product)
+  end
+
   private
 
   def product_params
@@ -87,6 +94,7 @@ class ProductsController < ApplicationController
 
   def available?
     @product = Product.find(params[:id])
+    authorize @product
     @product.available
   end
 end

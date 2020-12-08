@@ -36,6 +36,7 @@ class ApplicationPolicy
 
   def my_products?
     false
+
   end
 
   class Scope
