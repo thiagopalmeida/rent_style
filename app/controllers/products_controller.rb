@@ -34,12 +34,19 @@ class ProductsController < ApplicationController
       @products = policy_scope(Product).order(created_at: :desc).search_by_product(params[:query])
         if @products.empty?
           redirect_to root_path, notice: "Nenhum resultado encontrado para #{params[:query]}"
-        end  
+        end
     else
       @products = policy_scope(Product).order(created_at: :desc)
     end
-    
-    @users = User.all
+
+    products = Product.all
+    selecionado_prods_users = []
+    products.each do |prod|
+      selecionado_prods_users << prod.user_id
+    end
+    @users = User.where(id: selecionado_prods_users)
+
+
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -48,6 +55,15 @@ class ProductsController < ApplicationController
         image_url: helpers.asset_url('rentStyle.png')
       }
     end
+
+    # @markers = @users.geocoded.map do |user|
+    #   {
+    #     lat: user.latitude,
+    #     lng: user.longitude,
+    #     infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+    #     image_url: helpers.asset_url('rentStyle.png')
+    #   }
+    # end
   end
 
   def my_products

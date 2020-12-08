@@ -1,2 +1,6 @@
-<h2><%= user.name %></h2>
-<p><%= user.address %></p>
+<div style="padding: 20px 10px; box-shadow: 5px 5px 5px rgba(0 0 0 0.6); border-radius: 50px; justify-content: center;">
+  <% user.products.each do |product| %>
+  <h2><%= product.category %></h2>
+  <p><%= product.subcategory %></p>
+  <% end %>
+</div>
