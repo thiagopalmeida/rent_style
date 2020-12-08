@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 offset-sm-4">
       <div class="form-login">
-        <h2>Forgot your password?</h2>
+        <h2>Esqueceu sua senha?</h2>
         <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
           <%= f.error_notification %>
           <div class="form-inputs">
@@ -12,7 +12,7 @@
                         input_html: { autocomplete: "email" } %>
           </div>
           <div class="form-actions">
-            <%= f.button :submit, "Send me reset password instructions", class: "btn btn-primary" %>
+            <%= f.button :submit, "Envie-me instruções para novo registro", class: "btn btn-primary" %>
           </div>
         <% end %>
         <%= render "devise/shared/links" %>

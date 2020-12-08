@@ -30,8 +30,15 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = policy_scope(Product).order(created_at: :desc)
-
+    if params[:query].present?
+      @products = policy_scope(Product).order(created_at: :desc).search_by_product(params[:query])
+        if @products.empty?
+          redirect_to root_path, notice: "Nenhum resultado encontrado para #{params[:query]}"
+        end  
+    else
+      @products = policy_scope(Product).order(created_at: :desc)
+    end
+    
     @users = User.all
     @markers = @users.geocoded.map do |user|
       {

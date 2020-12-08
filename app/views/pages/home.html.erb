@@ -1,23 +1,21 @@
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1602791013646-80ce7a59b501?ixlib=rb-1.2.1&q=');">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1549439602-43ebca2327af?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=gabrielle-henderson-pL1qsBqCatk-unsplash.jpg');">
     <div class="container text-center" style="padding-bottom: 3rem">
-        <h1><strong>Rent Style</strong></h1>
+        <h1>Rent Style</h1>
         <br>
         <p>Estilo não se compra, mas pode ser alugado</p>
         <br>
         <br>
         <div class="container w-25 p-3">
-        <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-          <div class="search-form-control">
-            <input class="form-control" type="text" placeholder="Digite o produto desejado" name="search[query]" id="search_query" />
-            <button name="button" type="submit" class="btn btn-outline-primary mt-2">
-              <i class="fas fa-search"></i>Buscar
-            </button>
-            <br>
-            <br>
-          </div>
+          <%= form_tag products_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Digite o produto desejado"
+            %>
+            <%= submit_tag "Buscar", class: "btn btn-outline-primary mt-2" %>
         </div>
         <% end %>
         <%= link_to "Conheça nossos produtos!", products_path,  class: "btn btn-outline-primary" %>
     </div>
   </div>
-
+  
