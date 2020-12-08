@@ -11,25 +11,30 @@
         <li class="nav-item dropdown">
           <a class="dropdown-toggle nav-link font-weight-bold" id="navbarDropdown" data-toggle= "dropdown" role="button" aria-haspopup='true', aria-expanded='false'> Produtos</a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
             <% if user_signed_in? %>
               <%= link_to "Adicionar Produto", new_product_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
             <% end %>
-            <%= link_to "Vestidos", products_path, class: "dropdown-item" %>
-            <%= link_to "Acessórios", products_path, class: "dropdown-item" %>
-            <%= link_to "Sapatos Femininos", products_path, class: "dropdown-item" %>
+            <%= link_to "Vestidos", products_path(query: 'vestido'), class: "dropdown-item" %>
+            <%= link_to "Acessórios", products_path(query: 'acessório'), class: "dropdown-item" %>
+            <%= link_to "Sapatos Femininos", products_path(query: 'sapato feminino'), class: "dropdown-item" %>
+
             <div class="dropdown-divider"></div>
-            <%= link_to "Ternos", products_path, class: "dropdown-item" %>
-            <%= link_to "Acessórios Masculinos", products_path, class: "dropdown-item" %>
-            <%= link_to "Sapatos Masculinos", products_path, class: "dropdown-item" %>
+            <%= link_to "Ternos", products_path(query: 'ternos'), class: "dropdown-item" %>
+            <%= link_to "Acessórios Masculinos", products_path(query: 'acessório masculino'), class: "dropdown-item" %>
+            <%= link_to "Sapatos Masculinos", products_path(query: 'sapato masculino'), class: "dropdown-item" %>
           </div>
         </li>
         <li class="nav-item">
-          <%= link_to "Sobre Nós", about_path, class: "nav-link font-weight-bold" %>
+        <%= link_to "Adicionar produto", new_product_path, class: "nav-link font-weight-bold" %>
+          <%# <a href="#" class="nav-link font-weight-bold">Adicionar Produto</a> %>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link font-weight-bold">Contato</a>
-        </li>
+
+          <%= link_to "Sobre Nós", about_path, class: "nav-link font-weight-bold" %>
+        </li>       
+
         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link font-weight-bold" %>
         </li>
@@ -38,16 +43,16 @@
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
-              <i class="fas fa-user fa-2x avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+              <i class="fas fa-grin-alt fa-2x dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <% end %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              <%= link_to "Edit Account", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "Editar conta", edit_user_registration_path, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link font-weight-bold" %>
+            <%= link_to "Entrar", new_user_session_path, class: "nav-link font-weight-bold" %>
           </li>
         <% end %>
       </ul>

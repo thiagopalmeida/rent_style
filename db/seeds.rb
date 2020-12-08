@@ -72,7 +72,6 @@ product_collection.each do |prod|
     i += 1
 
 
-
   p.save
   puts "Product #{p.id} - #{p.description} created!"
 end

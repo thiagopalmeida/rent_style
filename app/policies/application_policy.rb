@@ -34,6 +34,11 @@ class ApplicationPolicy
     false
   end
 
+  def my_products?
+    false
+
+  end
+
   class Scope
     attr_reader :user, :scope
 

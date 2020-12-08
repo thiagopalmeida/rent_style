@@ -74,3 +74,4 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
 
 gem 'rgeo-geojson'
+gem 'pg_search', '~> 2.3.0'
