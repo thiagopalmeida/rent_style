@@ -40,6 +40,17 @@
         </div>
       </div>
       <div class="col-xl-4 col-sm-4 subcard">
+        <% if @product.user == current_user %>
+          <spam>
+              <% if @product.available? %>
+                <spam class="showcard-available">Disponível</spam>
+                <spam class="showcard-pause"><%= link_to 'Pausar Anúncio', product_pause_path(@product) %></spam>
+              <% else %>
+                <spam class="showcard-rented">Alugado</spam>
+                <spam class="showcard-back"><%= link_to 'Retomar Anúncio', product_pause_path(@product) %></spam>
+              <% end %>
+          </spam>
+        <% end %>
         <spam class="showcard-description"><%= @product.description %></spam>
         <spam class="showcard-brand"><strong>Marca: </strong><%= @product.brand %></spam>
         <spam class="showcard-size"><strong>Tamanho: </strong><%= @product.size %></spam>
