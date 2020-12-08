@@ -71,8 +71,6 @@
         <% else %>
 
           <i class="fas fa-user showcard-image "></i>
-
-        <% end %>
         <% end %>
       </div>
     </div>
@@ -80,8 +78,7 @@
     <div class="row justify-content-center">
       <div class="col-6 p-3">
         <ul class="list-inline text-center">
-          <% if  %>
-            <% @product.user == current_user %>
+          <% if @product.user == current_user %>
               <li class="list-inline-item">
                 <%= link_to 'Editar', edit_product_path(@product), class: "text-decoration-none font-weight-bold" %>
               </li>

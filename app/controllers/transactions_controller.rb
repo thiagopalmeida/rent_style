@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
     @transaction.user = current_user
     authorize @transaction
     if @transaction.save
-      redirect_to @product, notice: 'transaction was successfully created.'
+      redirect_to @product, notice: 'Pagamento realizado com sucesso.'
       @product.available = false
     else
       render :new
