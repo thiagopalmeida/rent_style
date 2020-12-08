@@ -54,7 +54,7 @@ product_collection.each do |prod|
       subcategory: prod[:subcat],
       brand: prod[:bra],
       size: prod[:si],
-      price: Faker::Commerce.price(range: 50..400.0),
+      price: Faker::Commerce.price(range: 50..400),
       user_id: rand(1..10)
       )
     # description: Faker::Commerce.product_name,
@@ -80,7 +80,7 @@ puts "Criando transações..."
 20.times do
   t = Transaction.create(
     user_id: rand(1..10),
-    product_id: rand(1..50),
+    product_id: rand(1..8),
     payment_method: ["Boleto", "Cartão de Crédito", "Transferência"].sample,
     price: rand(50..400)
   )
