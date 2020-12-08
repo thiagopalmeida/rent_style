@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     resources :transactions, only: %i[new create]
     resources :reviews, only: %i[new create]
   end
+  resources :review_users, only: [ :new, :create, :show ]
 end
