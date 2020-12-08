@@ -50,7 +50,9 @@
         <% if @product.user.photo.attached? %>
           <%= cl_image_tag @product.user.photo.key, class: "avatar-bordered showcard-image" %>
         <% else %>
+        <%= link_to review_user_path(@product.user.id) do %>
           <i class="fas fa-user showcard-image"></i>
+        <% end %>
         <% end %>
       </div>
     </div>
