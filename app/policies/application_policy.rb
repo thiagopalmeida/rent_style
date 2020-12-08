@@ -34,6 +34,10 @@ class ApplicationPolicy
     false
   end
 
+  def pause?
+    update?
+  end
+
   class Scope
     attr_reader :user, :scope
 
