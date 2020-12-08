@@ -39,32 +39,42 @@
           <% end %>
         </div>
       </div>
-      <div class="col-xl-4 col-sm-4 subcard">
+      <div class="col-xl-4 col-sm-4 subcard mb-5">
         <% if @product.user == current_user %>
-          <spam>
+          <div class="row justify-content-center">
+            <div class="col-12">
               <% if @product.available? %>
-                <spam class="showcard-available">Disponível</spam>
-                <spam class="showcard-pause"><%= link_to 'Pausar Anúncio', product_pause_path(@product) %></spam>
+                <p class="text-center m-0 pt-1">Disponível</p>
+                <p class="text-center"><%= link_to 'Pausar Anúncio', product_pause_path(@product) %></p>
               <% else %>
-                <spam class="showcard-rented">Alugado</spam>
-                <spam class="showcard-back"><%= link_to 'Retomar Anúncio', product_pause_path(@product) %></spam>
+                <p class="text-center m-0 pt-1">Anúncio Pausado</p>
+                <p class="text-center"><%= link_to 'Retomar Anúncio', product_pause_path(@product) %></p>
               <% end %>
-          </spam>
+            </div>
+          </div>
         <% end %>
-        <spam class="showcard-description"><%= @product.description %></spam>
-        <spam class="showcard-brand"><strong>Marca: </strong><%= @product.brand %></spam>
-        <spam class="showcard-size"><strong>Tamanho: </strong><%= @product.size %></spam>
-        <!-- <spam class="showcard-category"><%= @product.category %></spam> -->
-        <!-- <spam class="showcard-subcategory"><%= @product.subcategory %></spam> -->
-        <spam class="showcard-price">Valor:R$<%= @product.price %>,00</spam>
-        <spam class="showcard-text">por noite</spam>
+        <br>
+        <div class="row justify-content-center">
+          <div class="col-9">
+            <h3 class="text-center mt-4"><%= @product.description %></spam>
+          </div>
+          <div class="col-4 text-center">
+            <p><strong>Marca: </strong><%= @product.brand %></p>
+          </div>
+          <div class="col-4 text-center">
+            <p><strong>Tamanho: </strong><%= @product.size %></p>
+          </div>
+          <div class="col-9">
+            <h3 class="text-center">Valor:R$<%= @product.price %>,00</h2>
+          </div>
+        </div>
         <% if @product.user == current_user %>
           <spam class="showcard-edit"><%= link_to 'Editar', edit_product_path(@product), class: "text-decoration-none font-weight-bold" %></spam>
           <spam class="showcard-delete"><%= link_to 'Apagar', product_path(@product), method: :delete,
                   data: { confirm: "Confirma a exclusão do produto?"}, class: "text-decoration-none font-weight-bold" %>
           </spam>
         <% else %>
-          <spam class="showcard-purchase"><%= link_to 'Eu quero', new_product_transaction_path(@product), class: "btn btn-primary", style: "font-size: 22px;", label: 'Eu Quero!' %></spam>
+          <spam><%= link_to 'Eu quero', new_product_transaction_path(@product), class: "btn btn-primary btn-block btn-large mb-4", label: 'Eu Quero!' %></spam>
         <% end %>
         <% if @product.user.photo.attached? %>
           <%= cl_image_tag @product.user.photo.key, class: "avatar-bordered showcard-image" %>
@@ -73,27 +83,10 @@
         <% end %>
       </div>
     </div>
-
-    <div class="row justify-content-center">
-      <div class="col-6 p-3">
-        <ul class="list-inline text-center">
-          <% if  %>
-            <% @product.user == current_user %>
-              <li class="list-inline-item">
-                <%= link_to 'Editar', edit_product_path(@product), class: "text-decoration-none font-weight-bold" %>
-              </li>
-              <li class="list-inline-item">
-                <%= link_to 'Apagar', product_path(@product), method: :delete,
-                data: { confirm: "Confirma a exclusão do produto?"} %>
-              </li>
-          <% else %>
-            <li class="list-inline-item">
-              <%= link_to 'Eu quero', new_product_transaction_path(@product), class: "btn btn-primary", label: 'Eu Quero!' %>
-              <%= link_to 'Avalie o produto', new_product_review_path(@product) %>
-            </li>
-          <% end %>
-        </ul>
-
+      <div class="row justify-content-center mt-2">
+        <div class="col-9 pl-3 text-center">
+          <%= link_to "Avalie", new_product_review_path(@product) , class: "btn btn-outline-primary" %>
+        </div>
       </div>
       <% @product.reviews.each do |review| %>
         <div class="row justify-content-center mt-2">
@@ -112,7 +105,3 @@
     </div>
   </div>
 </div>
-
-
-
-
