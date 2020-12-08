@@ -12,9 +12,9 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     authorize @review
     if @review.save
-      redirect_to @product, notice: 'rating was successfully created.'
+      redirect_to @product, notice: 'Obrigado pela sua avaliação.'
     else
-      flash[:alert] = "Something went wrong."
+      flash[:alert] = "Algo deu errado."
       render :new
     end
   end

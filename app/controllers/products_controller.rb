@@ -1,8 +1,6 @@
 class ProductsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: %i[show index]
   before_action :set_product, only: %i[show edit update destroy availability]
-
 
   def new
     @product = Product.new
@@ -53,7 +51,14 @@ class ProductsController < ApplicationController
   end
 
   def my_products
-    @products = policy_scope(Product).where(user_id: current_user.id)
+    @my_products = policy_scope(Product).where(user_id: current_user.id)
+    @my_products_transactions = policy_scope(Transaction).where(product_id: @my_products.ids)
+    @my_transactions = policy_scope(Transaction).where(user_id: current_user.id)
+    # @reviews = policy_scope(Review).where(user_id: current_user.id)
+    authorize @my_products
+    authorize @my_products_transactions
+    authorize @my_transactions
+    # authorize @reviews
   end
 
   def update
@@ -68,8 +73,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     if @product.transactions == []
       @product.destroy
-      redirect_to root_path, notice: 'Produto apagado com sucesso!'
-    # Quando tiver a página com todos os produtos do usuário, redirecionar para ela.
+      redirect_to my_products_products_path, notice: 'Produto apagado com sucesso!'
     else
       @product.update(available: false)
       redirect_to root_path, notice: 'Não é possível apagar o produto, pois há transação registrada envolvendo-o.
@@ -77,10 +81,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def pause
+    @product = Product.find(params[:product_id])
+    authorize @product
+    @product.toggle!(:available)
+    redirect_to product_path(@product)
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:category, :subcategory, :brand, :size, :description, :price, photos: [])
+    params.require(:product).permit(:category, :subcategory, :brand, :size, :description, :price, :available, photos: [])
   end
 
   def set_product
@@ -90,6 +101,7 @@ class ProductsController < ApplicationController
 
   def available?
     @product = Product.find(params[:id])
+    authorize @product
     @product.available
   end
 end

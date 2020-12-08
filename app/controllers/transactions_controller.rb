@@ -24,5 +24,4 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:payment_method)
   end
-
 end

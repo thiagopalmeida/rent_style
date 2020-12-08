@@ -28,9 +28,11 @@
             <%= f.input :brand, label: 'Marca'%>
             <%= f.input :size, label: 'Tamanho',
                          collection: ["PP", "P", "M", "G", "GG", "XG", "XXG", "Único"]%>
+
             <%= f.input :price, label: 'Preço'%>
             <%= f.input :description, label: 'Descrição'%>
             <%= f.input :photos, label: 'Fotos', as: :file, input_html: { multiple: true }%>
+
           </div>
           <div class="form-actions">
             <%= f.button :submit, class: "btn btn-primary" %>

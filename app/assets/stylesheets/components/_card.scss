@@ -1,0 +1,36 @@
+.card-body {
+  position: relative;
+  height: 150px !important;
+}
+
+.card-size {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+}
+
+.card-price {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  font-size: 22px;
+}
+
+.card-brand {
+  position: absolute;
+  top: 35px;
+  left: 20px;
+}
+
+.card-want {
+  position: absolute;
+  bottom: 10px;
+  left: 105px;
+}
+
+.card-info {
+  position: absolute;
+  font-size: 12px;
+  bottom: 20px;
+  right: 20px;
+}
