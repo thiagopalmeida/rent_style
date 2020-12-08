@@ -4,7 +4,6 @@
         <br>
         <p>Estilo não se compra, mas pode ser alugado</p>
         <br>
-        <br>
         <div class="container w-25 p-3">
           <%= form_tag products_path, method: :get do %>
             <%= text_field_tag :query,
@@ -12,10 +11,10 @@
               class: "form-control",
               placeholder: "Digite o produto desejado"
             %>
-            <%= submit_tag "Buscar", class: "btn btn-outline-primary mt-2" %>
+            <%= submit_tag "Buscar", class: "btn btn-primary mt-2" %>
         </div>
+        <br>
         <% end %>
-        <%= link_to "Conheça nossos produtos!", products_path,  class: "btn btn-outline-primary" %>
+        <%= link_to "Conheça nossos produtos!", products_path,  class: "btn btn-primary" %>
     </div>
   </div>
-  

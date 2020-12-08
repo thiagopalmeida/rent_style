@@ -3,6 +3,10 @@
   height: 150px !important;
 }
 
+.card-container {
+  flex-grow: 0 !important;
+}
+
 .card-size {
   position: absolute;
   top: 60px;
@@ -24,8 +28,8 @@
 
 .card-want {
   position: absolute;
-  bottom: 10px;
-  left: 105px;
+  bottom: 25px;
+  left: 145px;
 }
 
 .card-info {

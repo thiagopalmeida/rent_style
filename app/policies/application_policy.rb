@@ -36,7 +36,10 @@ class ApplicationPolicy
 
   def my_products?
     false
+  end
 
+  def pause?
+    false
   end
 
   class Scope
