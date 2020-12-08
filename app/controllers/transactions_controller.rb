@@ -10,10 +10,12 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.product = @product
     @transaction.user = current_user
+    @transaction.price = @product[:price]
     authorize @transaction
     if @transaction.save
-      redirect_to @product, notice: 'transaction was successfully created.'
+      redirect_to my_products_products_path, notice: 'Aluguel realizado com sucesso.'
       @product.available = false
+      @product.save
     else
       render :new
     end
@@ -22,6 +24,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:payment_method)
+    params.require(:transaction).permit(:payment_method, :available)
   end
 end

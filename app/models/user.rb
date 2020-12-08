@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :products
   has_many :transactions
+  has_many :review_users
   has_one_attached :photo
 
   devise :database_authenticatable, :registerable,

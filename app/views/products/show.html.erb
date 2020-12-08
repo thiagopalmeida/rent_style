@@ -82,7 +82,9 @@
         <% if @product.user.photo.attached? %>
           <%= cl_image_tag @product.user.photo.key, class: "avatar-bordered showcard-image" %>
         <% else %>
+
           <i class="fas fa-user showcard-image "></i>
+
         <% end %>
       </div>
     </div>
